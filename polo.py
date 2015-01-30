@@ -104,15 +104,20 @@ def get_raw_data(row):
 
 
 def comparison_plot(df,fig,facets,data_fun=get_raw_data):
-    r"""Plot solutions from df with
-        - ax_var varying over axes
-        - line_var varying over lines within an axes
-        - widget_var varying over widget frames.
-    
-        Each of the above can be either:
-        - A string, in which case all values in that column are used
-        - A tuple of (str,list), in which the string indicates the column and
-          the list indicates which values to include
+    r"""Plot solutions from Pandas dataframe df on figure fig.
+
+        Inputs:
+            - df: dataframe
+            - fig: matplotlib figure
+            - facets: a dictionary that may contain the following keys: 'subplot', 'line', 'slider'
+              The value for each of these refers to a column of df and
+              specifies what parameter should be differentiated
+              (over different subplots, lines, or slider values).
+              Each of the values in facets can be either:
+                - A string, in which case all values in that column are used
+                - A tuple of (str,list), in which the string indicates the column and
+                  the list indicates which values to include
+            - data_fun: a function that takes one row of df and returns the relevant data to plot.
     """
     ax_var = facets['subplot']
     line_var = facets['line']
