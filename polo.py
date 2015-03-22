@@ -149,12 +149,13 @@ def comparison_plot(df,fig,facets,data_fun=get_raw_data):
     def plot_frame(**widget_vals):
         r"""Plot one frame."""
         widget_rows = [True]*len(df)
-        figstring = ''
+        figstring = []
         for i in range(num_widgets):
             widget_value = widget_vals[facet_param['widget_%s' % i]]
             widget_name = param_values['widget_%s' % i][widget_value]
             widget_rows = widget_rows & (df[facet_param['widget_%s' % i]]==widget_name)
-            figstring += "%s: %s, " % (facet_param['widget_%s' % i],widget_name)
+            figstring.append("%s: %s" % (facet_param['widget_%s' % i],widget_name))
+        figstring = ', '.join(figstring)
         fig.suptitle(figstring,fontsize=20)
       
         for ax_name, linedict in lines.iteritems():
