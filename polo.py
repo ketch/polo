@@ -189,7 +189,7 @@ def comparison_plot(df,fig,facets,data_fun=get_raw_data):
     if param_values['widget_0'][0] is not None:
         widges = {}
         for i in range(num_widgets):
-            widges[facet_param['widget_%s' % i]] = widgets.IntSlider(min=0,max=len(param_values['widget_%s' % i])-1,value=0, description=facet_param['widget_%s' % i])
+            widges[facet_param['widget_%s' % i]] = widgets.IntSlider(min=0,max=len(param_values['widget_%s' % i])-1,value=0, description=facet_param['widget_%s' % i], readout=False)
 
         return interact(plot_frame, **widges)
 
