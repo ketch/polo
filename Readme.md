@@ -40,3 +40,8 @@ The main function is:
     polo.comparison_plot(df,fig,facets)
 
 See the docstring or the example notebook for an explanation of the arguments.
+
+## Dependencies
+The following are recommended:
+- IPython version 3.0 or greater
+- Matplotlib version 1.4.3 or greater
