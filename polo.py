@@ -119,9 +119,9 @@ def comparison_plot(df,fig,facets,data_fun=get_raw_data):
                   the list indicates which values to include
             - data_fun: a function that takes one row of df and returns the relevant data to plot.
     """
-    ax_var = facets['subplot']
-    line_var = facets['line']
-    widget_var = facets['slider']
+    ax_var = facets.get('subplot')
+    line_var = facets.get('line')
+    widget_var = facets.get('slider')
     if type(widget_var) in (list,tuple):
         num_widgets = len(widget_var)
     elif widget_var is not None:
