@@ -43,5 +43,6 @@ See the docstring or the example notebook for an explanation of the arguments.
 
 ## Dependencies
 The following are recommended:
-- IPython version 3.0 or greater
-- Matplotlib version 1.4.3 or greater
+- IPython version 4.2.0 or greater
+- Matplotlib version 1.5.1 or greater
+- ipywidgets version 5.1.3 or greater

@@ -2,9 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib
 from matplotlib import animation
-from IPython.html.widgets import interact, interactive, fixed
-from IPython.html import widgets
-from IPython.display import clear_output, display, HTML
+from ipywidgets import interact, widgets
 
 def set_up_subplot_grid(subplot_names,fig):
     r"""Set up grid of axes for a single figure.
@@ -103,7 +101,8 @@ def get_raw_data(row):
     return xc, q
 
 
-def comparison_plot(df,fig,facets,data_fun=get_raw_data):
+def comparison_plot(df,fig,facets,data_fun=get_raw_data,
+                    xlim=(0,1),ylim=(-0.1,1.1)):
     r"""Plot solutions from Pandas dataframe df on figure fig.
 
         Inputs:
@@ -137,7 +136,7 @@ def comparison_plot(df,fig,facets,data_fun=get_raw_data):
         lines[ax_name] = set_up_lines(param_values['line'],axis)
         
     for ax_name, ax in axes.iteritems():
-        ax.set_xlim(0,1); ax.set_ylim(-0.1,1.1)
+        ax.set_xlim(xlim); ax.set_ylim(ylim)
         fs = 10+10./nrows
         if ax_var is not None:
             ax.set_title("%s: %s" % (facet_param['subplot'],ax_name), x = 0.5, y=0.95-nrows/30., fontsize=fs)
@@ -174,7 +173,7 @@ def comparison_plot(df,fig,facets,data_fun=get_raw_data):
                 if len(row) == 1:
                     # User-defined function goes here
                     ####################
-                    x, y = get_raw_data(row)
+                    x, y = data_fun(row)
                     line.set_data(x,y)
                 elif len(row) == 0:
                     line.set_data([],[])

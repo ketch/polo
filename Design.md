@@ -20,15 +20,15 @@ Additionally, Polo uses IPython widgets to allow rapid visual scanning through
 additional parameter dimensions.
 
 ## Pandas dataframes
-For now, Polo assumes that all data is provide in the form of a Pandas dataframe.
+For now, Polo assumes that all data is provided in the form of a Pandas dataframe.
 The dataframe fields can of course contain arbitrary objects.
 
 ## Matplotlib
 For the moment, all plotting is done with matplotlib.  The design
-is intended to make it easy to relax this assumption.  But it is unclear
-whether this has been achieved.
+is intended to make it possible eventually to plot with other packages
+(e.g. Bokeh or Plotly).
 
-## nbagg backend
+## notebook backend
 In order to deal directly and efficiently with low-level Matplotlib objects,
-the current design requires use of the nbagg backend.  With the inline backend,
-widgets will not work.
+the current design requires use of the notebook (formerly nbagg) backend.  With
+the inline backend, widgets will not work.
